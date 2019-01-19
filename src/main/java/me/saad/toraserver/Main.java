@@ -30,8 +30,8 @@ public class Main {
 			consumes = "application/json")
 	public void process(@RequestBody String payload) {
 
+		System.out.println("PAYLOAD: " + payload);
 		JsonObject object = (JsonObject) new JsonParser().parse(payload);
-		System.out.println(object.toString());
 		if (object.has("mega_user") && object.has("mega_pass") && object.has("torrent_link")) {
 			String megaUser = object.getAsJsonPrimitive("mega_user").getAsString();
 			String megaPass = object.getAsJsonPrimitive("mega_pass").getAsString();
